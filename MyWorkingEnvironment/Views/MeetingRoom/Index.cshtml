@@ -1,0 +1,48 @@
+﻿@model IEnumerable<MyWorkingEnvironment.Models.MeetingRoomModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>MeetingRooms</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Floor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Capacity)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.OrderBy(x=>x.Name)) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Floor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Capacity)
+            </td>
+            <td>
+                    @Html.ActionLink("Edit", "Edit", new {  id=item.IdMeetingRoom  }) |
+                    @Html.ActionLink("Details", "Details", new {  id=item.IdMeetingRoom  }) |
+                @Html.ActionLink("Delete", "Delete", new {  id=item.IdMeetingRoom  })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

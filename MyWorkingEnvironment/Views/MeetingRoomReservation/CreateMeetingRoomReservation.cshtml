@@ -1,0 +1,39 @@
+﻿@model MyWorkingEnvironment.Models.MeetingRoomReservationModel
+
+@{
+    ViewData["Title"] = "CreateMeetingRoomReservation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>CreateMeetingRoomReservation</h1>
+
+<h4>MeetingRoomReservationModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdReservation" class="control-label">When?</label>
+                @Html.DropDownList("IdReservation", new SelectList(@ViewBag.ReservationList, "Value", "Text"), "Select Reservation", new {@class="form-control"})
+                <span asp-validation-for="IdReservation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdMeetingRoom" class="control-label">Where?</label>
+                @Html.DropDownList("IdMeetingRoom", new SelectList(@ViewBag.MeetingRoomList, "Value", "Text"), "Select MeetingRoom", new {@class="form-control"})
+                <span asp-validation-for="IdMeetingRoom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

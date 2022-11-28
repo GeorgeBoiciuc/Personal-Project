@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>to your Working Environment</a>.</p>
+    @if (!(User.IsInRole("User") || User.IsInRole("Admin")))
+    {
+        <p>Please Login if you want to proceed.</p>
+        <p>If you are unsure of your login credentials or receive an error, please reach out to your support team at suport@@mwe.com</p>
+    }
+</div>

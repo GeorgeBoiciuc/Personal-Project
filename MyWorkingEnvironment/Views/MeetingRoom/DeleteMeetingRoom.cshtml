@@ -1,0 +1,45 @@
+﻿@model MyWorkingEnvironment.Models.MeetingRoomModel
+
+@{
+    ViewData["Title"] = "DeleteMeetingRoom";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>DeleteMeetingRoom</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>MeetingRoomModel</h4>
+    <hr />
+    <dl class="row">
+        <dt hidden class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IdMeetingRoom)
+        </dt>
+        <dd hidden class="col-sm-10">
+            @Html.DisplayFor(model => model.IdMeetingRoom)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Floor)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Floor)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Capacity)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Capacity)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
